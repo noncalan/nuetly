@@ -14,10 +14,10 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Главная", icon: LayoutGrid, href: "/dashboard" },
-  { label: "Пробные экзамены", icon: Timer, href: "/exam", matches: ["/exam", "/results"] },
-  { label: "Практика", icon: Target },
-  { label: "Программа", icon: BookOpen },
-  { label: "Аналитика", icon: ChartColumn },
+  { label: "Пробные экзамены", icon: Timer, href: "/mocks", matches: ["/mocks", "/exam", "/results"] },
+  { label: "Практика", icon: Target, href: "/practice" },
+  { label: "Программа", icon: BookOpen, href: "/learn" },
+  { label: "Аналитика", icon: ChartColumn, href: "/analytics" },
 ];
 
 export function SidebarNav({ layout = "vertical" }: { layout?: "vertical" | "horizontal" }) {

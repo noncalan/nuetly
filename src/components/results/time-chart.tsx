@@ -160,29 +160,32 @@ export function TimeChart({ results }: { results: QuestionResult[] }) {
   );
 }
 
+// sr-only sits on a wrapper: a <table> ignores width:1px and would widen the page on mobile.
 function TimeTable({ results }: { results: QuestionResult[] }) {
   return (
-    <table className="sr-only">
-      <caption>Время на каждый вопрос</caption>
-      <thead>
-        <tr>
-          <th scope="col">Номер</th>
-          <th scope="col">Тема</th>
-          <th scope="col">Время</th>
-          <th scope="col">Статус</th>
-        </tr>
-      </thead>
-      <tbody>
-        {results.map(({ question, record, status }) => (
-          <tr key={question.id}>
-            <th scope="row">{`${SECTIONS[question.section].short} ${question.number}`}</th>
-            <td>{topicById(question.topicId).name}</td>
-            <td>{formatClock(record.seconds)}</td>
-            <td>{STATUS_LABEL[status]}</td>
+    <div className="sr-only">
+      <table>
+        <caption>Время на каждый вопрос</caption>
+        <thead>
+          <tr>
+            <th scope="col">Номер</th>
+            <th scope="col">Тема</th>
+            <th scope="col">Время</th>
+            <th scope="col">Статус</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {results.map(({ question, record, status }) => (
+            <tr key={question.id}>
+              <th scope="row">{`${SECTIONS[question.section].short} ${question.number}`}</th>
+              <td>{topicById(question.topicId).name}</td>
+              <td>{formatClock(record.seconds)}</td>
+              <td>{STATUS_LABEL[status]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

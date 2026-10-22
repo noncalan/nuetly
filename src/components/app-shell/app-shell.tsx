@@ -22,14 +22,20 @@ export function AppShell({ children }: { children: ReactNode }) {
         <SidebarNav />
         <div className="mt-auto space-y-3">
           <p className="px-2.5 text-caption text-ink-3">Прототип: все данные демонстрационные</p>
-          <div className="flex items-center gap-2.5 rounded-xl border border-line bg-surface p-2 shadow-card">
-            <span className="grid size-8 place-items-center rounded-lg bg-accent-soft text-[13px] font-semibold text-accent-text">
-              {STUDENT.initials}
-            </span>
-            <div className="min-w-0 flex-1 leading-tight">
-              <p className="truncate text-meta font-medium">{STUDENT.name}</p>
-              <p className="truncate text-[11px] text-ink-3">{STUDENT.grade} · Beta</p>
-            </div>
+          <div className="flex items-center gap-1 rounded-xl border border-line bg-surface p-1 shadow-card">
+            <Link
+              href="/settings"
+              aria-label={`${STUDENT.name}: профиль и настройки`}
+              className="flex min-w-0 flex-1 items-center gap-2.5 rounded-lg p-1 transition-colors hover:bg-subtle active:bg-muted"
+            >
+              <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-accent-soft text-[13px] font-semibold text-accent-text">
+                {STUDENT.initials}
+              </span>
+              <span className="min-w-0 flex-1 leading-tight">
+                <span className="block truncate text-meta font-medium">{STUDENT.name}</span>
+                <span className="block truncate text-[11px] text-ink-3">{STUDENT.grade} · Beta</span>
+              </span>
+            </Link>
             <ThemeToggle />
           </div>
         </div>

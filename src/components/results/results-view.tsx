@@ -63,7 +63,9 @@ export function ResultsView() {
         <span aria-hidden className="mx-1.5">
           /
         </span>
-        Пробные экзамены
+        <Link href="/mocks" className="transition-colors hover:text-ink">
+          Пробные экзамены
+        </Link>
       </nav>
 
       <header className="mt-3 flex flex-wrap items-end justify-between gap-4">
